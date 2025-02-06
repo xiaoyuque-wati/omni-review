@@ -1,0 +1,75 @@
+# Project Name
+
+This project is a Go-based application that utilizes Google Cloud Pub/Sub for message publishing and subscription. It consists of two main components: a producer and a consumer.
+
+## Overview
+
+- **Producer**: The producer component is responsible for publishing messages to a specified Pub/Sub topic. It includes a health check endpoint and periodically sends messages with customizable fields.
+- **Consumer**: The consumer component subscribes to a Pub/Sub topic and processes incoming messages. It includes a REST API for handling email sending requests.
+
+## Key Features
+
+- **Google Cloud Pub/Sub Integration**: Seamlessly integrates with Google Cloud Pub/Sub for message handling.
+- **REST API**: Provides a RESTful interface for additional operations, such as sending emails.
+- **Dockerized Deployment**: Both components are containerized using Docker for easy deployment.
+
+## Installation
+
+1. **Clone the Repository**:
+   ```bash
+   git clone <repository-url>
+   cd <repository-directory>
+   ```
+
+2. **Build Docker Images**:
+   - For the Producer:
+     ```bash
+     docker build -t producer-image -f producer/Dockerfile .
+     ```
+   - For the Consumer:
+     ```bash
+     docker build -t consumer-image -f consumer/Dockerfile .
+     ```
+
+3. **Run Docker Containers**:
+   - Start the Producer:
+     ```bash
+     docker run -d --name producer-container -p 8080:8080 producer-image
+     ```
+   - Start the Consumer:
+     ```bash
+     docker run -d --name consumer-container -p 8080:8080 consumer-image
+     ```
+
+## Usage
+
+- **Access the Producer Health Check**:
+  ```bash
+  curl http://localhost:8080/health
+  ```
+
+- **Send an Email Request via Consumer API**:
+  ```bash
+  curl -X POST http://localhost:8080/send-email -H "Content-Type: application/json" -d '{"email": "example@example.com", "message": "Hello World!"}'
+  ```
+
+## Testing
+
+- **Run Tests**:
+  Navigate to the consumer directory and run the tests:
+  ```bash
+  cd consumer
+  go test ./...
+  ```
+
+## Contributing
+
+Contributions are welcome! Please fork the repository and submit a pull request.
+
+## License
+
+This project is licensed under the MIT License.
+
+## Contact
+
+For any inquiries, please contact the project maintainers.
