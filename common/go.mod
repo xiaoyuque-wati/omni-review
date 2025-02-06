@@ -1,4 +1,4 @@
-module common
+module github.com/xiaoyuque-wati/omni-review/common
 
 go 1.21
 
