@@ -8,8 +8,8 @@ import (
 	"net/http"
 	"time"
 
-	"your-project-path/common"  // Update this with your actual project path
 	pubsub "cloud.google.com/go/pubsub"
+	"github.com/xiaoyuque-wati/omni-review/common"
 )
 
 func main() {
@@ -33,10 +33,10 @@ func main() {
 		select {
 		case <-ticker.C:
 			message := common.NewMessage()
-			
+
 			// Customize fields if needed
 			message.Recipient.Fields["department"] = "engineering"
-			
+
 			jsonData, err := json.Marshal(message)
 			if err != nil {
 				log.Printf("failed to marshal message: %v", err)

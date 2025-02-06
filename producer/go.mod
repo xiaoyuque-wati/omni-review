@@ -2,10 +2,9 @@ module producer
 
 go 1.21
 
-require (
-	cloud.google.com/go/pubsub v1.44.0
-	google.golang.org/grpc v1.66.2
-)
+require cloud.google.com/go/pubsub v1.44.0
+
+require google.golang.org/grpc v1.66.2 // indirect
 
 require (
 	cloud.google.com/go v0.115.1 // indirect
@@ -21,6 +20,7 @@ require (
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/googleapis/enterprise-certificate-proxy v0.3.4 // indirect
 	github.com/googleapis/gax-go/v2 v2.13.0 // indirect
+	github.com/xiaoyuque-wati/omni-review v0.0.0
 	go.opencensus.io v0.24.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/google.golang.org/grpc/otelgrpc v0.54.0 // indirect
 	go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp v0.54.0 // indirect
